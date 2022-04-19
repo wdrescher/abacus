@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## SETUP
+* Clone the repo to a folder on your computer
+* navigate to that directory using command line
+* [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* `npm i && ng serve -o`
+
+This should run without errors and spin up project in your browser
