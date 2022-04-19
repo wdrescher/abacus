@@ -6,12 +6,12 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { LandingPageState } from './landing-page.interface';
-import { AppState, User } from '../app.interface';
+import { AppState } from '../app.interface';
 import { UserStateService } from '../services/user-state.service';
-import { LoginSuccessResponse, TokenValidationResponse, ValidateTokenSuccessResponse } from '../services/reqeusts.interface';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { LoginSuccessResponse, TokenValidationResponse } from '../services/reqeusts.interface';
+import { HttpErrorResponse } from '@angular/common/http';
 import { AppStateService } from '../services/app-state.service';
-import { AUTH_TOKEN_KEY, AWAITING_VERIFICATION_KEY, PASSWORD_LENGTH } from '../app.constants';
+import { AWAITING_VERIFICATION_KEY, PASSWORD_LENGTH } from '../app.constants';
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit';
 
 interface LandingPageConfig {
@@ -241,27 +241,6 @@ export class LandingPageComponent implements OnInit {
             }
           )
       }
-      else if (this.pageState === LandingPageState.RESET_PASSWORD) {
-        window.analytics.track('click:reset password');
-        const password = this.formGroup.controls.password.value;
-        // this.authService.resetPassword(this._token, password)
-        //   .pipe(take(1))
-        //   .subscribe(
-        //     () => {
-        //       this.router.navigateByUrl("login")
-        //     },
-        //     (response) => {
-        //       this.isLoading = false;
-        //       if (response.error && response.error.password) {
-        //         this.loginError = response.error.password[0];
-        //       }
-        //       else {
-        //         Sentry.captureException(response);
-        //         this.modal.open();
-        //       }
-        //     }
-        //   )
-      }
       else if (this.pageState === LandingPageState.SET_PASSWORD) {
         window.analytics.track("set password"); 
         let password = this.formGroup.controls["password"].value; 
@@ -271,13 +250,6 @@ export class LandingPageComponent implements OnInit {
           .subscribe(
             () => {
               this.router.navigateByUrl(AppState.GALLERY);
-              // this._userStateService.loadUser(res);
-              // this.authService.attemptLogin(email, password).subscribe(
-              //   (res: LoginSuccessResponse) => {
-              //     this._login(res.access_token);
-              //     this.router.navigateByUrl(AppState.GALLERY);
-              //   }
-              // )
             }, 
             (err: HttpErrorResponse) => {
               this.loginError = err.error.detail; 

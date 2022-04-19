@@ -7,6 +7,9 @@ $logo-color: var(--primary-color);
     align-items: center;
     justify-content: flex-start;
 
+    &--backstay {
+        height: 4rem;
+    }
 
 
     &__img {
