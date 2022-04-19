@@ -1,0 +1,20 @@
+<div class="gallery-join-team">
+    <form [formGroup]="formGroup" (ngSubmit)="submit()" class="gallery-join-team">
+        <div tuiGroup class="group" collapsed="true">
+            <tui-input> 
+                Referral Code
+                <input 
+                    tuiTextfield
+                    formControlName="referral" 
+                >
+            </tui-input>
+            <button 
+                tuiButton 
+                type="submit" 
+                [disabled]="!formGroup.valid || isLoading"
+                [showLoader]="isLoading"
+            >Join</button>
+        </div>
+        <tui-error [error]="computedError"></tui-error>
+    </form>
+</div>

@@ -6,13 +6,13 @@
     justify-content: space-between;
     min-height: 100vh;
 
-    &-inside {
-        min-height: 80vh; 
+    // &-inside {
+    //     min-height: 80vh; 
 
-        @media screen and (max-width: 600px) {
-            padding: unset; 
-        }
-    }
+    //     @media screen and (max-width: 600px) {
+    //         padding: unset; 
+    //     }
+    // }
 
     &__loading {
         position: absolute;
@@ -23,4 +23,5 @@
         align-items: center;
         justify-content: center;
     }
+
 }

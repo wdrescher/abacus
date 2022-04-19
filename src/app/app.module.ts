@@ -15,10 +15,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { GalleryModule } from 'src/app/gallery/gallery.module';
+
+import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { GalleryComponent } from './gallery/gallery/gallery.component';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AuthInterceptor } from './services/auth.interceptor';
@@ -34,19 +35,19 @@ declare global {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
-    GalleryComponent,
+    LandingPageComponent
   ],
   imports: [
+    AppRoutingModule,
+    SharedModule,
+    // ThirdParty
     TuiInputModule,
     ReactiveFormsModule,
     FormsModule,
     ScrollingModule,
-    SharedModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     InfiniteScrollModule,
     TuiRootModule,
     TuiDialogModule,

@@ -41,13 +41,21 @@ export interface Settings {
     temp:string; 
 }
 
+export enum Role {
+    COACH = "COACH",
+    ROWER = "ROWER",
+    EBOARD = "EBOARD"
+}
+
 export interface User {
     profile_id: number;
     username: string; 
     email: string; 
     first_name: string; 
     last_name: string; 
-    is_artist?: boolean; 
+    is_artist?: boolean;
+    team_id: number;
+    role: Role;
 }
 
 export interface Artist {
@@ -111,7 +119,9 @@ export enum AppState {
     BILLING_SETTINGS = 'billing', 
     ADDRESS_SETTINGS = 'address',
     BOOKINGS = "bookings",
-    PARLORS = 'parlor'
+    PARLORS = 'parlor',
+    GALLERY__TEAM = "gallery/team",
+    GALLERY__COACH = "gallery/coach"
 }
 
 export enum FileType { 

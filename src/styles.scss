@@ -92,6 +92,7 @@ $upload-row-width: 326px;
 @mixin max-width {
     width: 80%; 
     max-width: 1400px; 
+    margin:auto;
     
     @media screen and (max-width: 600px) {
         width: 100%;

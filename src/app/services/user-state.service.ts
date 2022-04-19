@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 
 import { AUTH_TOKEN_KEY, AWAITING_VERIFICATION_KEY } from '../app.constants';
-import { User } from '../app.interface';
+import { Role, User } from '../app.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -76,11 +76,15 @@ export class UserStateService {
     return this.isDefined ? this._user.email : "";
   }
 
+  get role(): Role {
+    return this.isDefined ? this._user.role : undefined;
+  }
+
   get profileId(): number {
     return this.isDefined ? this._user.profile_id : undefined; 
   }
 
-  get isArtist(): boolean {
-    return this.isDefined ?  this._user.is_artist : false; 
+  get teamId(): number {
+    return this.isDefined ? this._user.team_id : undefined;
   }
 }

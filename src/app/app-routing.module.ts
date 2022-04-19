@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppState } from './app.interface';
-import { GalleryComponent } from './gallery/gallery/gallery.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LandingPageState } from './landing-page/landing-page.interface';
 import { SustainingLoginGuard } from './services/sustaining-login.guard';
@@ -21,7 +20,7 @@ const routes: Routes = [
       { path: `${AppState.EMAIL_VERIFICATION}/:token`, component: LandingPageComponent, data: { pageState: LandingPageState.EMAIL_VERIFICATION } },
       {
         path: "", canActivate: [MustBeLoggedInGuard, UserGuard], children: [
-          { path: AppState.GALLERY, component: GalleryComponent },
+          { path: AppState.GALLERY, loadChildren: () => import('./gallery/gallery.module').then(m => m.GalleryModule)},
           { path: AppState.PROFILE, loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)}, 
         ]
       },
